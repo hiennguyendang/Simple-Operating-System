@@ -1,0 +1,670 @@
+======================================================================
+Timer started
+Time slot   0
+ld_routine
+	Loaded a process at input/proc/p0s, PID: 1 Niceness: 19
+======================================================================
+Time slot   1
+	CPU 2: Dispatched process  1
+........................
+Running on CPU 2:  1
+........................
+Called inc_vma_limit
+Allocated region 0 with size 300, return status: 0
+print_list_rg: 
+rg[300->512]
+
+print_pgtbl: 0 - 512
+00000000: 80000001
+00000004: 80000002
+Process 1: Page Number: 0 -> Frame Number: 1
+Process 1: Page Number: 1 -> Frame Number: 2
+	CPU 2: Put process  1 to run tree
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+Called inc_vma_limit
+Allocated region 4 with size 300, return status: 0
+print_list_rg: 
+rg[812->1024]
+rg[300->512]
+
+print_pgtbl: 0 - 1024
+00000000: 80000001
+00000004: 80000002
+00000008: 80000003
+00000012: 80000004
+Process 1: Page Number: 0 -> Frame Number: 1
+Process 1: Page Number: 1 -> Frame Number: 2
+Process 1: Page Number: 2 -> Frame Number: 3
+Process 1: Page Number: 3 -> Frame Number: 4
+	CPU 0: Put process  1 to run tree
+	CPU 3: Dispatched process  1
+........................
+Running on CPU 3:  1
+........................
+Freed region 0, return status: 0
+print_list_rg: 
+rg[0->512]
+rg[812->1024]
+
+print_pgtbl: 0 - 1024
+00000000: 00000000
+00000004: 00000000
+00000008: 80000003
+00000012: 80000004
+Process 1: Page Number: 2 -> Frame Number: 3
+Process 1: Page Number: 3 -> Frame Number: 4
+	CPU 3: Put process  1 to run tree
+	CPU 1: Dispatched process  1
+........................
+Running on CPU 1:  1
+........................
+Allocated region 1 with size 100, return status: 0
+print_list_rg: 
+rg[912->1024]
+rg[0->512]
+
+print_pgtbl: 0 - 1024
+00000000: 00000000
+00000004: 00000000
+00000008: 80000003
+00000012: 80000004
+Process 1: Page Number: 2 -> Frame Number: 3
+Process 1: Page Number: 3 -> Frame Number: 4
+	CPU 1: Put process  1 to run tree
+======================================================================
+Time slot   2
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+write region=1 offset=20 value=100
+print_pgtbl: 0 - 1024
+00000000: 00000000
+00000004: 00000000
+00000008: 80000003
+00000012: 80000004
+Process 1: Page Number: 2 -> Frame Number: 3
+Process 1: Page Number: 3 -> Frame Number: 4
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+	CPU 0: Put process  1 to run tree
+	CPU 3: Dispatched process  1
+........................
+Running on CPU 3:  1
+........................
+read region=1 offset=20 value=100
+print_pgtbl: 0 - 1024
+00000000: 00000000
+	Loaded a process at input/proc/sc2, PID: 2 Niceness: -20
+00000004: 00000000
+00000008: 80000003
+00000012: 80000004
+Process 1: Page Number: 2 -> Frame Number: 3
+Process 1: Page Number: 3 -> Frame Number: 4
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+	CPU 3: Put process  1 to run tree
+	CPU 2: Dispatched process  2
+........................
+Running on CPU 2:  2
+........................
+Called inc_vma_limit
+Allocated region 5 with size 100, return status: 0
+print_list_rg: 
+rg[100->256]
+
+print_pgtbl: 0 - 256
+00000000: 80000002
+Process 2: Page Number: 0 -> Frame Number: 2
+======================================================================
+Time slot   3
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+Failed to write region=2 offset=20
+	CPU 0: Put process  1 to run tree
+	CPU 1: Dispatched process  1
+........................
+Running on CPU 1:  1
+........................
+Failed to read region=2 offset=20
+	CPU 1: Put process  1 to run tree
+	CPU 3: Dispatched process  1
+........................
+Running on CPU 3:  1
+........................
+Failed to write region=3 offset=20
+	CPU 3: Put process  1 to run tree
+........................
+Running on CPU 2:  2
+........................
+write region=5 offset=0 value=112
+print_pgtbl: 0 - 256
+00000000: 80000002
+Process 2: Page Number: 0 -> Frame Number: 2
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000256: 112
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+	Loaded a process at input/proc/s3, PID: 3 Niceness: 17
+	CPU 1: Dispatched process  3
+	CPU 3: Dispatched process  1
+........................
+Running on CPU 3:  1
+........................
+Failed to read region=3 offset=20
+	CPU 3: Put process  1 to run tree
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+Freed region 4, return status: 0
+print_list_rg: 
+rg[0->812]
+rg[912->1024]
+
+print_pgtbl: 0 - 1024
+00000000: 00000000
+00000004: 00000000
+00000008: 00000000
+00000012: 80000004
+Process 1: Page Number: 3 -> Frame Number: 4
+	CPU 0: Put process  1 to run tree
+........................
+Running on CPU 1:  3
+........................
+	CPU 1: Put process  3 to run tree
+........................
+Running on CPU 2:  2
+........................
+write region=5 offset=1 value=48
+print_pgtbl: 0 - 256
+00000000: 80000002
+Process 2: Page Number: 0 -> Frame Number: 2
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000256: 112
+BYTE 00000257: 48
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+======================================================================
+Time slot   4
+	CPU 1: Dispatched process  3
+........................
+Running on CPU 1:  3
+........................
+	CPU 1: Put process  3 to run tree
+	CPU 0: Dispatched process  3
+........................
+Running on CPU 0:  3
+........................
+	CPU 0: Put process  3 to run tree
+======================================================================
+Time slot   5
+	CPU 3: Dispatched process  3
+........................
+Running on CPU 3:  3
+........................
+	CPU 3: Put process  3 to run tree
+........................
+Running on CPU 2:  2
+........................
+write region=5 offset=2 value=115
+print_pgtbl: 0 - 256
+00000000: 80000002
+Process 2: Page Number: 0 -> Frame Number: 2
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000256: 112
+BYTE 00000257: 48
+BYTE 00000258: 115
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+	CPU 3: Dispatched process  3
+........................
+Running on CPU 3:  3
+........................
+	CPU 3: Put process  3 to run tree
+	Loaded a process at input/proc/s2, PID: 4 Niceness: 19
+	CPU 1: Dispatched process  3
+........................
+Running on CPU 1:  3
+........................
+	CPU 1: Put process  3 to run tree
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+	CPU 0: Put process  4 to run tree
+======================================================================
+Time slot   6
+........................
+Running on CPU 2:  2
+........................
+write region=5 offset=3 value=-1
+print_pgtbl: 0 - 256
+00000000: 80000002
+Process 2: Page Number: 0 -> Frame Number: 2
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000256: 112
+BYTE 00000257: 48
+BYTE 00000258: 115
+BYTE 00000259: -1
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+	CPU 0: Put process  4 to run tree
+	CPU 1: Dispatched process  4
+........................
+Running on CPU 1:  4
+........................
+	CPU 1: Put process  4 to run tree
+	CPU 3: Dispatched process  4
+........................
+Running on CPU 3:  4
+======================================================================
+Time slot   7
+........................
+	CPU 3: Put process  4 to run tree
+	Loaded a process at input/proc/m0s, PID: 5 Niceness: -4
+........................
+Running on CPU 2:  2
+........................
+read region=5 offset=0 value=112
+print_pgtbl: 0 - 256
+00000000: 80000002
+Process 2: Page Number: 0 -> Frame Number: 2
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000256: 112
+BYTE 00000257: 48
+BYTE 00000258: 115
+BYTE 00000259: -1
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+read region=5 offset=1 value=48
+print_pgtbl: 0 - 256
+00000000: 80000002
+Process 2: Page Number: 0 -> Frame Number: 2
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000256: 112
+BYTE 00000257: 48
+BYTE 00000258: 115
+BYTE 00000259: -1
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+read region=5 offset=2 value=115
+print_pgtbl: 0 - 256
+00000000: 80000002
+Process 2: Page Number: 0 -> Frame Number: 2
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000256: 112
+BYTE 00000257: 48
+BYTE 00000258: 115
+BYTE 00000259: -1
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+read region=5 offset=3 value=-1
+print_pgtbl: 0 - 256
+00000000: 80000002
+Process 2: Page Number: 0 -> Frame Number: 2
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000256: 112
+BYTE 00000257: 48
+BYTE 00000258: 115
+BYTE 00000259: -1
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+The procname retrieved from memregionid 5 is "input/proc/p0s"
+	Process 1 has been killed
+	Killed 1 processes matching "input/proc/p0s"
+	CPU 2: Put process  2 to run tree
+	CPU 0: Dispatched process  5
+........................
+Running on CPU 0:  5
+........................
+Called inc_vma_limit
+Allocated region 0 with size 300, return status: 0
+print_list_rg: 
+rg[300->512]
+
+print_pgtbl: 0 - 512
+00000000: 80000003
+00000004: 80000001
+Process 5: Page Number: 0 -> Frame Number: 3
+Process 5: Page Number: 1 -> Frame Number: 1
+	CPU 0: Put process  5 to run tree
+	CPU 1: Processed  2 has finished
+	CPU 1: Dispatched process  5
+........................
+Running on CPU 1:  5
+........................
+Allocated region 1 with size 100, return status: 0
+print_list_rg: 
+rg[400->512]
+
+print_pgtbl: 0 - 512
+00000000: 80000003
+00000004: 80000001
+Process 5: Page Number: 0 -> Frame Number: 3
+Process 5: Page Number: 1 -> Frame Number: 1
+	CPU 1: Put process  5 to run tree
+======================================================================
+Time slot   8
+	CPU 3: Dispatched process  5
+........................
+Running on CPU 3:  5
+........................
+Freed region 0, return status: 0
+print_list_rg: 
+rg[0->300]
+rg[400->512]
+
+print_pgtbl: 0 - 512
+00000000: 00000000
+00000004: 80000001
+Process 5: Page Number: 1 -> Frame Number: 1
+	CPU 3: Put process  5 to run tree
+	CPU 2: Dispatched process  5
+........................
+Running on CPU 2:  5
+........................
+Allocated region 2 with size 100, return status: 0
+print_list_rg: 
+rg[500->512]
+rg[0->300]
+
+print_pgtbl: 0 - 512
+00000000: 00000000
+00000004: 80000001
+Process 5: Page Number: 1 -> Frame Number: 1
+	CPU 2: Put process  5 to run tree
+======================================================================
+Time slot   9
+	CPU 0: Dispatched process  5
+........................
+Running on CPU 0:  5
+........................
+write region=1 offset=20 value=102
+print_pgtbl: 0 - 512
+00000000: 00000000
+00000004: 80000001
+Process 5: Page Number: 1 -> Frame Number: 1
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000064: 102
+BYTE 00000256: 112
+BYTE 00000257: 48
+BYTE 00000258: 115
+BYTE 00000259: -1
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+	CPU 0: Put process  5 to run tree
+	CPU 1: Dispatched process  5
+........................
+Running on CPU 1:  5
+........................
+Failed to write region=2 offset=1000
+	CPU 1: Put process  5 to run tree
+	CPU 3: Processed  5 has finished
+	Loaded a process at input/proc/p1s, PID: 6 Niceness: -3
+	CPU 3: Dispatched process  6
+........................
+Running on CPU 3:  6
+........................
+	CPU 3: Put process  6 to run tree
+	CPU 2: Dispatched process  6
+........................
+Running on CPU 2:  6
+........................
+	CPU 2: Put process  6 to run tree
+======================================================================
+Time slot  10
+	CPU 1: Dispatched process  6
+........................
+Running on CPU 1:  6
+........................
+	CPU 1: Put process  6 to run tree
+	CPU 0: Dispatched process  6
+........................
+Running on CPU 0:  6
+........................
+	CPU 0: Put process  6 to run tree
+	CPU 3: Dispatched process  6
+........................
+Running on CPU 3:  6
+........................
+	CPU 3: Put process  6 to run tree
+	CPU 2: Dispatched process  6
+........................
+Running on CPU 2:  6
+........................
+	CPU 2: Put process  6 to run tree
+======================================================================
+Time slot  11
+	CPU 1: Dispatched process  6
+........................
+Running on CPU 1:  6
+........................
+	CPU 1: Put process  6 to run tree
+	CPU 0: Dispatched process  6
+........................
+Running on CPU 0:  6
+........................
+	CPU 0: Put process  6 to run tree
+	Loaded a process at input/proc/s0, PID: 7 Niceness: -5
+	CPU 2: Dispatched process  7
+........................
+Running on CPU 2:  7
+........................
+	CPU 2: Put process  7 to run tree
+	CPU 3: Dispatched process  7
+........................
+Running on CPU 3:  7
+........................
+	CPU 3: Put process  7 to run tree
+======================================================================
+Time slot  12
+	CPU 0: Dispatched process  7
+........................
+Running on CPU 0:  7
+........................
+	CPU 0: Put process  7 to run tree
+	CPU 1: Dispatched process  7
+........................
+Running on CPU 1:  7
+........................
+	CPU 1: Put process  7 to run tree
+	CPU 3: Dispatched process  7
+........................
+Running on CPU 3:  7
+........................
+	CPU 3: Put process  7 to run tree
+	CPU 2: Dispatched process  7
+........................
+Running on CPU 2:  7
+........................
+	CPU 2: Put process  7 to run tree
+======================================================================
+Time slot  13
+	CPU 1: Dispatched process  7
+........................
+Running on CPU 1:  7
+........................
+	CPU 1: Put process  7 to run tree
+	CPU 0: Dispatched process  3
+........................
+Running on CPU 0:  3
+........................
+	CPU 0: Put process  3 to run tree
+	CPU 3: Dispatched process  6
+........................
+Running on CPU 3:  6
+........................
+	CPU 3: Put process  6 to run tree
+	CPU 2: Dispatched process  7
+........................
+Running on CPU 2:  7
+........................
+	CPU 2: Put process  7 to run tree
+	CPU 1: Dispatched process  7
+........................
+Running on CPU 1:  7
+........................
+	CPU 1: Put process  7 to run tree
+	CPU 3: Dispatched process  7
+........................
+Running on CPU 3:  7
+........................
+	CPU 3: Put process  7 to run tree
+	CPU 0: Dispatched process  7
+........................
+Running on CPU 0:  7
+........................
+	CPU 0: Put process  7 to run tree
+======================================================================
+Time slot  14
+	CPU 2: Dispatched process  7
+........................
+Running on CPU 2:  7
+........................
+	CPU 2: Put process  7 to run tree
+======================================================================
+Time slot  15
+	CPU 1: Dispatched process  7
+........................
+Running on CPU 1:  7
+........................
+	CPU 1: Put process  7 to run tree
+	CPU 3: Dispatched process  7
+........................
+Running on CPU 3:  7
+........................
+	CPU 0: Dispatched process  6
+........................
+Running on CPU 0:  6
+........................
+	CPU 3: Put process  7 to run tree
+	CPU 0: Put process  6 to run tree
+	CPU 2: Dispatched process  7
+........................
+Running on CPU 2:  7
+........................
+	CPU 2: Put process  7 to run tree
+======================================================================
+Time slot  16
+	Loaded a process at input/proc/s1, PID: 8 Niceness: -20
+	CPU 1: Dispatched process  8
+........................
+Running on CPU 1:  8
+........................
+	CPU 3: Processed  7 has finished
+	CPU 0: Processed  6 has finished
+	CPU 3: Dispatched process  4
+........................
+Running on CPU 3:  4
+........................
+	CPU 3: Put process  4 to run tree
+	CPU 0: Dispatched process  3
+........................
+Running on CPU 0:  3
+........................
+	CPU 0: Put process  3 to run tree
+	CPU 2: Dispatched process  4
+........................
+Running on CPU 2:  4
+........................
+	CPU 2: Put process  4 to run tree
+======================================================================
+Time slot  17
+	CPU 0: Dispatched process  3
+........................
+Running on CPU 0:  3
+........................
+	CPU 0: Put process  3 to run tree
+........................
+Running on CPU 1:  8
+........................
+	CPU 2: Dispatched process  3
+........................
+Running on CPU 2:  3
+........................
+	CPU 2: Put process  3 to run tree
+	CPU 3: Dispatched process  4
+........................
+Running on CPU 3:  4
+........................
+	CPU 3: Put process  4 to run tree
+	CPU 3: Dispatched process  3
+........................
+Running on CPU 3:  3
+........................
+	CPU 3: Put process  3 to run tree
+........................
+Running on CPU 1:  8
+........................
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+	CPU 0: Put process  4 to run tree
+======================================================================
+Time slot  18
+	CPU 2: Processed  3 has finished
+	CPU 2: Dispatched process  4
+........................
+Running on CPU 2:  4
+........................
+	CPU 2: Put process  4 to run tree
+........................
+Running on CPU 1:  8
+........................
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+	CPU 0: Put process  4 to run tree
+======================================================================
+Time slot  19
+	CPU 3: Dispatched process  4
+........................
+Running on CPU 3:  4
+........................
+	CPU 3: Put process  4 to run tree
+	CPU 2: Dispatched process  4
+........................
+Running on CPU 2:  4
+........................
+	CPU 2: Put process  4 to run tree
+	CPU 3: Processed  4 has finished
+	CPU 0 stopped
+	CPU 3 stopped
+	CPU 2 stopped
+======================================================================
+Time slot  20
+........................
+Running on CPU 1:  8
+........................
+======================================================================
+Time slot  21
+........................
+Running on CPU 1:  8
+........................
+======================================================================
+Time slot  22
+........................
+Running on CPU 1:  8
+........................
+======================================================================
+Time slot  23
+	CPU 1: Processed  8 has finished
+	CPU 1 stopped
+==================================================================
+Average wait time: 2.375000
+Total wait time: 19
+==================================================================

@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "build os",               // Tên task này sẽ được gọi trong launch.json
+		"type": "shell",
+		"command": "make",
+		"args": ["all"],
+		"problemMatcher": [],
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		}
+	  }
+	]
+  }
+  

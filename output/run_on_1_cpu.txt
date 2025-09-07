@@ -1,0 +1,377 @@
+======================================================================
+Timer started
+Time slot   0
+ld_routine
+	Loaded a process at input/proc/p0s, PID: 1 Niceness: -20
+======================================================================
+Time slot   1
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+Called inc_vma_limit
+Allocated region 0 with size 300, return status: 0
+print_list_rg: 
+rg[300->512]
+
+print_pgtbl: 0 - 512
+00000000: 80000001
+00000004: 80000002
+Process 1: Page Number: 0 -> Frame Number: 1
+Process 1: Page Number: 1 -> Frame Number: 2
+======================================================================
+Time slot   2
+........................
+Running on CPU 0:  1
+........................
+Called inc_vma_limit
+Allocated region 4 with size 300, return status: 0
+print_list_rg: 
+rg[812->1024]
+rg[300->512]
+
+print_pgtbl: 0 - 1024
+00000000: 80000001
+00000004: 80000002
+00000008: 80000003
+00000012: 80000004
+Process 1: Page Number: 0 -> Frame Number: 1
+Process 1: Page Number: 1 -> Frame Number: 2
+Process 1: Page Number: 2 -> Frame Number: 3
+Process 1: Page Number: 3 -> Frame Number: 4
+	Loaded a process at input/proc/p1s, PID: 2 Niceness: 0
+======================================================================
+Time slot   3
+........................
+Running on CPU 0:  1
+........................
+Freed region 0, return status: 0
+print_list_rg: 
+rg[0->512]
+rg[812->1024]
+
+print_pgtbl: 0 - 1024
+00000000: 00000000
+00000004: 00000000
+00000008: 80000003
+00000012: 80000004
+Process 1: Page Number: 2 -> Frame Number: 3
+Process 1: Page Number: 3 -> Frame Number: 4
+	CPU 0: Put process  1 to run tree
+======================================================================
+Time slot   4
+	Loaded a process at input/proc/p1s, PID: 3 Niceness: -20
+	CPU 0: Dispatched process  2
+........................
+Running on CPU 0:  2
+........................
+	CPU 0: Put process  2 to run tree
+======================================================================
+Time slot   5
+	CPU 0: Dispatched process  3
+........................
+Running on CPU 0:  3
+........................
+======================================================================
+Time slot   6
+........................
+Running on CPU 0:  3
+........................
+	Loaded a process at input/proc/p1s, PID: 4 Niceness: -20
+======================================================================
+Time slot   7
+........................
+Running on CPU 0:  3
+........................
+	CPU 0: Put process  3 to run tree
+======================================================================
+Time slot   8
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+======================================================================
+Time slot   9
+........................
+Running on CPU 0:  4
+........................
+======================================================================
+Time slot  10
+........................
+Running on CPU 0:  4
+........................
+======================================================================
+Time slot  11
+........................
+Running on CPU 0:  4
+........................
+	CPU 0: Put process  4 to run tree
+======================================================================
+Time slot  12
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+Allocated region 1 with size 100, return status: 0
+print_list_rg: 
+rg[912->1024]
+rg[0->512]
+
+print_pgtbl: 0 - 1024
+00000000: 00000000
+00000004: 00000000
+00000008: 80000003
+00000012: 80000004
+Process 1: Page Number: 2 -> Frame Number: 3
+Process 1: Page Number: 3 -> Frame Number: 4
+	CPU 0: Put process  1 to run tree
+======================================================================
+Time slot  13
+	CPU 0: Dispatched process  3
+........................
+Running on CPU 0:  3
+........................
+======================================================================
+Time slot  14
+........................
+Running on CPU 0:  3
+........................
+	CPU 0: Put process  3 to run tree
+======================================================================
+Time slot  15
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+	CPU 0: Put process  4 to run tree
+======================================================================
+Time slot  16
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+write region=1 offset=20 value=100
+print_pgtbl: 0 - 1024
+00000000: 00000000
+00000004: 00000000
+00000008: 80000003
+00000012: 80000004
+Process 1: Page Number: 2 -> Frame Number: 3
+Process 1: Page Number: 3 -> Frame Number: 4
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+======================================================================
+Time slot  17
+........................
+Running on CPU 0:  1
+........................
+read region=1 offset=20 value=100
+print_pgtbl: 0 - 1024
+00000000: 00000000
+00000004: 00000000
+00000008: 80000003
+00000012: 80000004
+Process 1: Page Number: 2 -> Frame Number: 3
+Process 1: Page Number: 3 -> Frame Number: 4
+===== PHYSICAL MEMORY DUMP =====
+BYTE 00000832: 100
+===== PHYSICAL MEMORY END-DUMP =====
+	CPU 0: Put process  1 to run tree
+======================================================================
+Time slot  18
+	CPU 0: Dispatched process  3
+........................
+Running on CPU 0:  3
+........................
+	CPU 0: Put process  3 to run tree
+======================================================================
+Time slot  19
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+======================================================================
+Time slot  20
+........................
+Running on CPU 0:  4
+........................
+	CPU 0: Put process  4 to run tree
+======================================================================
+Time slot  21
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+Failed to write region=2 offset=20
+	CPU 0: Put process  1 to run tree
+======================================================================
+Time slot  22
+	CPU 0: Dispatched process  3
+........................
+Running on CPU 0:  3
+........................
+======================================================================
+Time slot  23
+........................
+Running on CPU 0:  3
+........................
+	CPU 0: Put process  3 to run tree
+======================================================================
+Time slot  24
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+	CPU 0: Put process  4 to run tree
+======================================================================
+Time slot  25
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+Failed to read region=2 offset=20
+======================================================================
+Time slot  26
+........................
+Running on CPU 0:  1
+........................
+Failed to write region=3 offset=20
+	CPU 0: Put process  1 to run tree
+======================================================================
+Time slot  27
+	CPU 0: Dispatched process  3
+........................
+Running on CPU 0:  3
+........................
+	CPU 0: Put process  3 to run tree
+======================================================================
+Time slot  28
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+======================================================================
+Time slot  29
+........................
+Running on CPU 0:  4
+........................
+	CPU 0: Put process  4 to run tree
+======================================================================
+Time slot  30
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+Failed to read region=3 offset=20
+	CPU 0: Put process  1 to run tree
+======================================================================
+Time slot  31
+	CPU 0: Dispatched process  3
+........................
+Running on CPU 0:  3
+........................
+	CPU 0: Processed  3 has finished
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+	CPU 0: Put process  4 to run tree
+======================================================================
+Time slot  32
+======================================================================
+Time slot  33
+	CPU 0: Dispatched process  1
+........................
+Running on CPU 0:  1
+........................
+Freed region 4, return status: 0
+print_list_rg: 
+rg[0->812]
+rg[912->1024]
+
+print_pgtbl: 0 - 1024
+00000000: 00000000
+00000004: 00000000
+00000008: 00000000
+00000012: 80000004
+Process 1: Page Number: 3 -> Frame Number: 4
+======================================================================
+Time slot  34
+	CPU 0: Processed  1 has finished
+	CPU 0: Dispatched process  4
+........................
+Running on CPU 0:  4
+........................
+======================================================================
+Time slot  35
+	CPU 0: Processed  4 has finished
+	CPU 0: Dispatched process  2
+........................
+Running on CPU 0:  2
+........................
+	CPU 0: Put process  2 to run tree
+======================================================================
+Time slot  36
+	CPU 0: Dispatched process  2
+........................
+Running on CPU 0:  2
+........................
+	CPU 0: Put process  2 to run tree
+======================================================================
+Time slot  37
+	CPU 0: Dispatched process  2
+........................
+Running on CPU 0:  2
+........................
+	CPU 0: Put process  2 to run tree
+======================================================================
+Time slot  38
+	CPU 0: Dispatched process  2
+........................
+Running on CPU 0:  2
+........................
+	CPU 0: Put process  2 to run tree
+======================================================================
+Time slot  39
+	CPU 0: Dispatched process  2
+........................
+Running on CPU 0:  2
+........................
+	CPU 0: Put process  2 to run tree
+======================================================================
+Time slot  40
+	CPU 0: Dispatched process  2
+........................
+Running on CPU 0:  2
+........................
+	CPU 0: Put process  2 to run tree
+======================================================================
+Time slot  41
+	CPU 0: Dispatched process  2
+........................
+Running on CPU 0:  2
+........................
+	CPU 0: Put process  2 to run tree
+======================================================================
+Time slot  42
+	CPU 0: Dispatched process  2
+........................
+Running on CPU 0:  2
+........................
+	CPU 0: Put process  2 to run tree
+======================================================================
+Time slot  43
+	CPU 0: Dispatched process  2
+........................
+Running on CPU 0:  2
+........................
+	CPU 0: Put process  2 to run tree
+======================================================================
+Time slot  44
+	CPU 0: Processed  2 has finished
+	CPU 0 stopped
+==================================================================
+Average wait time: 22.500000
+Total wait time: 90
+==================================================================

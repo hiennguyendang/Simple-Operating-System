@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "*.lst": "c",
+        "mm.h": "c",
+        "bit": "c",
+        "cmath": "c",
+        "compare": "c",
+        "concepts": "c",
+        "cstdarg": "c",
+        "cstdio": "c",
+        "cstdlib": "c",
+        "type_traits": "c",
+        "limits": "c",
+        "new": "c",
+        "*.tcc": "c",
+        "cstdint": "c",
+        "typeinfo": "c",
+        "libmem.h": "c",
+        "red_black_tree.h": "c",
+        "cfs.h": "c",
+        "pthread.h": "c"
+    }
+}
